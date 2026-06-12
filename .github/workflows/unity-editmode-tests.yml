@@ -19,13 +19,13 @@ jobs:
           cat > ObjectSelectionCoreStateBridge-TestProject/Packages/manifest.json <<JSON
           {
             "dependencies": {
-              "com.jorishoef.object-selection": "https://github.com/JorisHoef/Object-Selection.git#main",
-              "com.jorishoef.core.state": "https://github.com/JorisHoef/Core-State.git#main",
-              "com.jorishoef.objectselection-corestate-bridge": "file:${package_path}",
+              "com.deucarian.object-selection": "https://github.com/Deucarian/Object-Selection.git#main",
+              "com.deucarian.core-state": "https://github.com/Deucarian/Core-State.git#main",
+              "com.deucarian.object-selection.core-state-bridge": "file:${package_path}",
               "com.unity.test-framework": "1.1.33"
             },
             "testables": [
-              "com.jorishoef.objectselection-corestate-bridge"
+              "com.deucarian.object-selection.core-state-bridge"
             ]
           }
           JSON

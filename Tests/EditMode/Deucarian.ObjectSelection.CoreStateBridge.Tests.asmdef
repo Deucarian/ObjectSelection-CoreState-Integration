@@ -1,10 +1,10 @@
 {
-  "name": "JorisHoef.ObjectSelection.CoreState.Tests",
-  "rootNamespace": "JorisHoef.ObjectSelection.CoreState.Tests",
+  "name": "Deucarian.ObjectSelection.CoreStateBridge.Tests",
+  "rootNamespace": "Deucarian.ObjectSelection.CoreStateBridge.Tests",
   "references": [
-    "JorisHoef.ObjectSelection.CoreState",
-    "JorisHoef.ObjectSelection",
-    "JorisHoef.Core.State"
+    "Deucarian.ObjectSelection.CoreStateBridge",
+    "Deucarian.ObjectSelection",
+    "Deucarian.CoreState"
   ],
   "includePlatforms": [
     "Editor"

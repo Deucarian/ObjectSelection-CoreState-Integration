@@ -2,9 +2,9 @@
 
 ## Scope
 
-ObjectSelection CoreState Bridge is a standalone bridge package. It may depend on `com.jorishoef.object-selection` and `com.jorishoef.core.state`.
+ObjectSelection CoreState Bridge is a standalone bridge package. It may depend on `com.deucarian.object-selection` and `com.deucarian.core-state`.
 
-Keep this package independent from GenericUIItems, APIHelper, SessionHelper, UI Toolkit, UGUI, ServiceLocator, backend services, and application-specific architecture.
+Keep this package independent from UIBinding, API, Session, UI Toolkit, UGUI, ServiceLocator, backend services, and application-specific architecture.
 
 The bridge synchronizes shared keys only. ObjectSelection owns world-object selection. CoreState owns data/application selection.
 
@@ -21,9 +21,9 @@ For Unity validation, use a separate test project that references this package a
 ```json
 {
   "dependencies": {
-    "com.jorishoef.object-selection": "file:C:/Repositories/ObjectSelection",
-    "com.jorishoef.core.state": "file:C:/Repositories/Core-State",
-    "com.jorishoef.objectselection-corestate-bridge": "file:C:/Repositories/JorisHoef.ObjectSelection-CoreState-Bridge"
+    "com.deucarian.object-selection": "file:C:/Repositories/ObjectSelection",
+    "com.deucarian.core-state": "file:C:/Repositories/Core-State",
+    "com.deucarian.object-selection.core-state-bridge": "file:C:/Repositories/Deucarian.ObjectSelection-CoreState-Bridge"
   }
 }
 ```

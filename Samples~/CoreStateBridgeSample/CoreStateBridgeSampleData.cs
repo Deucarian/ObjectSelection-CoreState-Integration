@@ -1,6 +1,6 @@
-using JorisHoef.Core.State;
+using Deucarian.CoreState;
 
-namespace JorisHoef.ObjectSelection.CoreState.Samples
+namespace Deucarian.ObjectSelection.CoreStateBridge.Samples
 {
     public sealed class CoreStateBridgeSampleData : IIdentifiable<string>
     {

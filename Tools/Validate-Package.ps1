@@ -7,10 +7,10 @@ $requiredFiles = @(
     "CHANGELOG.md",
     "LICENSE.md",
     "CONTRIBUTING.md",
-    "Runtime/JorisHoef.ObjectSelection.CoreState.asmdef",
+    "Runtime/Deucarian.ObjectSelection.CoreStateBridge.asmdef",
     "Runtime/ObjectSelectionCoreStateBridge.cs",
-    "Tests/EditMode/JorisHoef.ObjectSelection.CoreState.Tests.asmdef",
-    "Samples~/CoreStateBridgeSample/JorisHoef.ObjectSelection.CoreState.Samples.CoreStateBridgeSample.asmdef",
+    "Tests/EditMode/Deucarian.ObjectSelection.CoreStateBridge.Tests.asmdef",
+    "Samples~/CoreStateBridgeSample/Deucarian.ObjectSelection.CoreStateBridge.Samples.CoreStateBridgeSample.asmdef",
     "Samples~/CoreStateBridgeSample/CoreStateBridgeSample.unity"
 )
 
@@ -37,11 +37,11 @@ foreach ($file in $requiredFiles) {
 }
 
 $package = Get-Content -LiteralPath (Join-Path $root "package.json") -Raw | ConvertFrom-Json
-if ($package.name -ne "com.jorishoef.objectselection-corestate-bridge") {
+if ($package.name -ne "com.deucarian.object-selection.core-state-bridge") {
     throw "Unexpected package name: $($package.name)"
 }
 
-if ($package.displayName -ne "JorisHoef ObjectSelection CoreState Bridge") {
+if ($package.displayName -ne "Deucarian Object Selection Core State Bridge") {
     throw "Unexpected package display name: $($package.displayName)"
 }
 
@@ -49,41 +49,41 @@ if ($package.version -notmatch "^\d+\.\d+\.\d+$") {
     throw "Package version must be semver MAJOR.MINOR.PATCH: $($package.version)"
 }
 
-if ($package.dependencies."com.jorishoef.object-selection" -ne "1.0.0") {
-    throw "Package must depend on com.jorishoef.object-selection 1.0.0"
+if ($package.dependencies."com.deucarian.object-selection" -ne "1.0.0") {
+    throw "Package must depend on com.deucarian.object-selection 1.0.0"
 }
 
-if ($package.dependencies."com.jorishoef.core.state" -ne "1.0.0") {
-    throw "Package must depend on com.jorishoef.core.state 1.0.0"
+if ($package.dependencies."com.deucarian.core-state" -ne "1.0.0") {
+    throw "Package must depend on com.deucarian.core-state 1.0.0"
 }
 
-$runtimeAsmdef = Get-Content -LiteralPath (Join-Path $root "Runtime/JorisHoef.ObjectSelection.CoreState.asmdef") -Raw | ConvertFrom-Json
-if ($runtimeAsmdef.name -ne "JorisHoef.ObjectSelection.CoreState") {
+$runtimeAsmdef = Get-Content -LiteralPath (Join-Path $root "Runtime/Deucarian.ObjectSelection.CoreStateBridge.asmdef") -Raw | ConvertFrom-Json
+if ($runtimeAsmdef.name -ne "Deucarian.ObjectSelection.CoreStateBridge") {
     throw "Unexpected runtime asmdef name: $($runtimeAsmdef.name)"
 }
 
-if ($runtimeAsmdef.references -notcontains "JorisHoef.ObjectSelection") {
-    throw "Runtime asmdef must reference JorisHoef.ObjectSelection"
+if ($runtimeAsmdef.references -notcontains "Deucarian.ObjectSelection") {
+    throw "Runtime asmdef must reference Deucarian.ObjectSelection"
 }
 
-if ($runtimeAsmdef.references -notcontains "JorisHoef.Core.State") {
-    throw "Runtime asmdef must reference JorisHoef.Core.State"
+if ($runtimeAsmdef.references -notcontains "Deucarian.CoreState") {
+    throw "Runtime asmdef must reference Deucarian.CoreState"
 }
 
-$testAsmdef = Get-Content -LiteralPath (Join-Path $root "Tests/EditMode/JorisHoef.ObjectSelection.CoreState.Tests.asmdef") -Raw | ConvertFrom-Json
-if ($testAsmdef.references -notcontains "JorisHoef.ObjectSelection.CoreState") {
-    throw "Tests asmdef must reference JorisHoef.ObjectSelection.CoreState"
+$testAsmdef = Get-Content -LiteralPath (Join-Path $root "Tests/EditMode/Deucarian.ObjectSelection.CoreStateBridge.Tests.asmdef") -Raw | ConvertFrom-Json
+if ($testAsmdef.references -notcontains "Deucarian.ObjectSelection.CoreStateBridge") {
+    throw "Tests asmdef must reference Deucarian.ObjectSelection.CoreStateBridge"
 }
 
-$sampleAsmdef = Get-Content -LiteralPath (Join-Path $root "Samples~/CoreStateBridgeSample/JorisHoef.ObjectSelection.CoreState.Samples.CoreStateBridgeSample.asmdef") -Raw | ConvertFrom-Json
-if ($sampleAsmdef.references -notcontains "JorisHoef.ObjectSelection.CoreState") {
-    throw "Sample asmdef must reference JorisHoef.ObjectSelection.CoreState"
+$sampleAsmdef = Get-Content -LiteralPath (Join-Path $root "Samples~/CoreStateBridgeSample/Deucarian.ObjectSelection.CoreStateBridge.Samples.CoreStateBridgeSample.asmdef") -Raw | ConvertFrom-Json
+if ($sampleAsmdef.references -notcontains "Deucarian.ObjectSelection.CoreStateBridge") {
+    throw "Sample asmdef must reference Deucarian.ObjectSelection.CoreStateBridge"
 }
 
 $forbiddenReferences = @(
-    "GenericUIItems",
-    "APIHelper",
-    "SessionHelper",
+    "UIBinding",
+    "API",
+    "Session",
     "UnityEngine.UI",
     "UnityEngine.EventSystems",
     "UnityEngine.UIElements",
@@ -115,4 +115,4 @@ if ($generatedArtifacts.Count -gt 0) {
     throw "Generated artifacts are present in the package repository."
 }
 
-Write-Host "JorisHoef ObjectSelection CoreState Bridge package validation passed."
+Write-Host "Deucarian Object Selection Core State Bridge package validation passed."

@@ -1,6 +1,6 @@
-using JorisHoef.ObjectSelection;
+using Deucarian.ObjectSelection;
 
-namespace JorisHoef.ObjectSelection.CoreState.Samples
+namespace Deucarian.ObjectSelection.CoreStateBridge.Samples
 {
     public sealed class CoreStateBridgeSampleRaycastController : RaycastSelectionController<string>
     {

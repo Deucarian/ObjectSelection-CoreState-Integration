@@ -1,9 +1,10 @@
 {
-  "name": "JorisHoef.ObjectSelection.CoreState",
-  "rootNamespace": "JorisHoef.ObjectSelection.CoreState",
+  "name": "Deucarian.ObjectSelection.CoreStateBridge.Samples.CoreStateBridgeSample",
+  "rootNamespace": "Deucarian.ObjectSelection.CoreStateBridge.Samples",
   "references": [
-    "JorisHoef.ObjectSelection",
-    "JorisHoef.Core.State"
+    "Deucarian.ObjectSelection.CoreStateBridge",
+    "Deucarian.ObjectSelection",
+    "Deucarian.CoreState"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

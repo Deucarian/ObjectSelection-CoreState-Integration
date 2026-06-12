@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using JorisHoef.Core.State;
-using JorisHoef.ObjectSelection;
+using Deucarian.CoreState;
+using Deucarian.ObjectSelection;
 using NUnit.Framework;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace JorisHoef.ObjectSelection.CoreState.Tests
+namespace Deucarian.ObjectSelection.CoreStateBridge.Tests
 {
     public sealed class ObjectSelectionCoreStateBridgeTests
     {

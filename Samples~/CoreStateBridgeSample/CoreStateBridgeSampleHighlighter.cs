@@ -1,8 +1,8 @@
-using JorisHoef.ObjectSelection;
+using Deucarian.ObjectSelection;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace JorisHoef.ObjectSelection.CoreState.Samples
+namespace Deucarian.ObjectSelection.CoreStateBridge.Samples
 {
     public sealed class CoreStateBridgeSampleHighlighter : MonoBehaviour, IObjectSelectionHighlighter<string>
     {

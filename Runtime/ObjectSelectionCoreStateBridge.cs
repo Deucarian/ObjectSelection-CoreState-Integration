@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using JorisHoef.Core.State;
-using JorisHoef.ObjectSelection;
+using Deucarian.CoreState;
+using Deucarian.ObjectSelection;
 
-namespace JorisHoef.ObjectSelection.CoreState
+namespace Deucarian.ObjectSelection.CoreStateBridge
 {
     /// <summary>
     /// Synchronizes Object Selection and Core State selection services by shared key.
@@ -123,7 +123,7 @@ namespace JorisHoef.ObjectSelection.CoreState
 
         private void OnObjectSelectionChanged(
             object sender,
-            JorisHoef.ObjectSelection.SelectionChangedEventArgs<TKey> args)
+            Deucarian.ObjectSelection.SelectionChangedEventArgs<TKey> args)
         {
             if (_isSyncing)
             {
@@ -146,7 +146,7 @@ namespace JorisHoef.ObjectSelection.CoreState
 
         private void OnCoreSelectionChanged(
             object sender,
-            JorisHoef.Core.State.SelectionChangedEventArgs<TKey, T> args)
+            Deucarian.CoreState.SelectionChangedEventArgs<TKey, T> args)
         {
             if (_isSyncing)
             {

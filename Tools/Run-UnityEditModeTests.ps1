@@ -14,7 +14,7 @@ $ErrorActionPreference = "Stop"
     -projectPath $ProjectPath `
     -runTests `
     -testPlatform editmode `
-    -assemblyNames JorisHoef.ObjectSelection.CoreState.Tests `
+    -assemblyNames Deucarian.ObjectSelection.CoreStateBridge.Tests `
     -testResults (Join-Path $ProjectPath "TestResults.xml")
 
 if ($LASTEXITCODE -ne 0) {

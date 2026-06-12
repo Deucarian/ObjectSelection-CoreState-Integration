@@ -1,15 +1,15 @@
-# JorisHoef ObjectSelection CoreState Bridge
+# Deucarian ObjectSelection CoreState Bridge
 
 ## Overview
 
-JorisHoef ObjectSelection CoreState Bridge is a standalone Unity package that synchronizes keyed selection between:
+Deucarian ObjectSelection CoreState Bridge is a standalone Unity package that synchronizes keyed selection between:
 
-- `JorisHoef Object Selection`
-- `JorisHoef Core State`
+- `Deucarian Object Selection`
+- `Deucarian Core State`
 
 ObjectSelection owns world-object selection. CoreState owns data/application selection. This bridge only synchronizes shared keys.
 
-Package ID: `com.jorishoef.objectselection-corestate-bridge`
+Package ID: `com.deucarian.object-selection.core-state-bridge`
 
 ## Installation
 
@@ -18,9 +18,9 @@ Install the dependencies and this bridge through Unity Package Manager:
 ```json
 {
   "dependencies": {
-    "com.jorishoef.object-selection": "https://github.com/JorisHoef/Object-Selection.git#main",
-    "com.jorishoef.core.state": "https://github.com/JorisHoef/Core-State.git#main",
-    "com.jorishoef.objectselection-corestate-bridge": "https://github.com/JorisHoef/Object-Selection-Bridge.git#main"
+    "com.deucarian.object-selection": "https://github.com/Deucarian/Object-Selection.git#main",
+    "com.deucarian.core-state": "https://github.com/Deucarian/Core-State.git#main",
+    "com.deucarian.object-selection.core-state-bridge": "https://github.com/Deucarian/Object-Selection-Bridge.git#main"
   }
 }
 ```
@@ -30,9 +30,9 @@ For local development:
 ```json
 {
   "dependencies": {
-    "com.jorishoef.object-selection": "file:C:/Repositories/ObjectSelection",
-    "com.jorishoef.core.state": "file:C:/Repositories/Core-State",
-    "com.jorishoef.objectselection-corestate-bridge": "file:C:/Repositories/JorisHoef.ObjectSelection-CoreState-Bridge"
+    "com.deucarian.object-selection": "file:C:/Repositories/ObjectSelection",
+    "com.deucarian.core-state": "file:C:/Repositories/Core-State",
+    "com.deucarian.object-selection.core-state-bridge": "file:C:/Repositories/Deucarian.ObjectSelection-CoreState-Bridge"
   }
 }
 ```
@@ -62,9 +62,9 @@ CoreState ISelectionService<TKey, T> selects key
 `ObjectSelectionCoreStateBridge<TKey, T>` subscribes to both selection services and forwards changes by key.
 
 ```csharp
-using JorisHoef.Core.State;
-using JorisHoef.ObjectSelection;
-using JorisHoef.ObjectSelection.CoreState;
+using Deucarian.CoreState;
+using Deucarian.ObjectSelection;
+using Deucarian.ObjectSelection.CoreStateBridge;
 
 ObjectSelectionService<string> objectSelection = new ObjectSelectionService<string>(objectRegistry);
 ISelectionService<string, ProjectData> coreSelection = new SelectionService<string, ProjectData>(repository);
@@ -96,7 +96,7 @@ bridge.Dispose();
 - A guard prevents recursive feedback loops.
 - Missing keys are handled with `TrySelect` and do not throw.
 - The bridge does not duplicate selection state.
-- The bridge does not use ServiceLocator, singletons, UI Toolkit, UGUI, GenericUIItems, APIHelper, SessionHelper, or backend/application code.
+- The bridge does not use ServiceLocator, singletons, UI Toolkit, UGUI, UIBinding, API, Session, or backend/application code.
 
 ## Samples
 
@@ -116,4 +116,4 @@ Run structural validation from the package root:
 powershell -ExecutionPolicy Bypass -File ./Tools/Validate-Package.ps1
 ```
 
-For Unity validation, use a separate test project that references this package and its dependencies by file path, then run EditMode tests for `JorisHoef.ObjectSelection.CoreState.Tests`.
+For Unity validation, use a separate test project that references this package and its dependencies by file path, then run EditMode tests for `Deucarian.ObjectSelection.CoreStateBridge.Tests`.

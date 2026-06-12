@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using JorisHoef.Core.State;
-using JorisHoef.ObjectSelection;
+using Deucarian.CoreState;
+using Deucarian.ObjectSelection;
 using UnityEngine;
 
-namespace JorisHoef.ObjectSelection.CoreState.Samples
+namespace Deucarian.ObjectSelection.CoreStateBridge.Samples
 {
     public sealed class CoreStateBridgeSample : MonoBehaviour
     {
@@ -87,7 +87,7 @@ namespace JorisHoef.ObjectSelection.CoreState.Samples
         private void OnGUI()
         {
             GUILayout.BeginArea(new Rect(16f, 16f, 390f, 280f), GUI.skin.box);
-            GUILayout.Label("JorisHoef ObjectSelection CoreState Bridge");
+            GUILayout.Label("Deucarian ObjectSelection CoreState Bridge");
             GUILayout.Label("World: " + (_objectSelection.HasSelection ? _objectSelection.CurrentKey : "(none)"));
             GUILayout.Label("CoreState: " + (_coreSelection.HasSelection ? _coreSelection.SelectedKey : "(none)"));
             GUILayout.Label(_lastObjectEvent);
@@ -142,7 +142,7 @@ namespace JorisHoef.ObjectSelection.CoreState.Samples
 
         private void OnCoreSelectionChanged(
             object sender,
-            JorisHoef.Core.State.SelectionChangedEventArgs<string, CoreStateBridgeSampleData> args)
+            Deucarian.CoreState.SelectionChangedEventArgs<string, CoreStateBridgeSampleData> args)
         {
             string previous = args.HadPreviousSelection ? args.PreviousKey : "(none)";
             string current = args.HasSelection ? args.SelectedKey : "(none)";
