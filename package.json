@@ -1,6 +1,6 @@
 {
   "name": "com.deucarian.object-selection.core-state-bridge",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Deucarian Object Selection Core State Bridge",
   "description": "Bridge package that synchronizes Deucarian Object Selection and Deucarian Core State selections by shared key.",
   "unity": "2021.3",
@@ -15,6 +15,7 @@
     "corestate"
   ],
   "dependencies": {
+    "com.deucarian.logging": "0.2.2",
     "com.deucarian.object-selection": "1.0.0",
     "com.deucarian.core-state": "1.0.0"
   },

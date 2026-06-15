@@ -37,7 +37,13 @@ For local development:
 }
 ```
 
-The bridge requires Unity `2021.3` or newer.
+The bridge requires Unity `2021.3` or newer and depends on `com.deucarian.logging`.
+
+## Logging
+
+This package uses `com.deucarian.logging`.
+
+ObjectSelection CoreState bridge diagnostics use stable package categories: `Selection.CoreStateBridge` and `Selection.CoreStateBridge.Samples`. Configure Deucarian Logging filters by category and level to isolate bridge or sample output. Entries flow through the shared ring buffer for recent-diagnostic inspection and remain compatible with future telemetry sinks.
 
 ## Core Flow
 

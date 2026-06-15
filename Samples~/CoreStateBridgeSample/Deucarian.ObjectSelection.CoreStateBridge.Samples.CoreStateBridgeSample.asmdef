@@ -4,7 +4,8 @@
   "references": [
     "Deucarian.ObjectSelection.CoreStateBridge",
     "Deucarian.ObjectSelection",
-    "Deucarian.CoreState"
+    "Deucarian.CoreState",
+    "Deucarian.Logging"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
