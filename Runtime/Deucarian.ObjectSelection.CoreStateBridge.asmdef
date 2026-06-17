@@ -3,7 +3,8 @@
   "rootNamespace": "Deucarian.ObjectSelection.CoreStateBridge",
   "references": [
     "Deucarian.ObjectSelection",
-    "Deucarian.CoreState"
+    "Deucarian.CoreState",
+    "Deucarian.Logging"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

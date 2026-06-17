@@ -137,7 +137,7 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Samples
             string previous = args.HadPreviousSelection ? args.PreviousKey : "(none)";
             string current = args.HasSelection ? args.CurrentKey : "(none)";
             _lastObjectEvent = "ObjectSelection: " + previous + " -> " + current + " (" + args.Reason + ")";
-            Debug.Log(_lastObjectEvent);
+            ObjectSelectionCoreStateLog.Samples.Info(_lastObjectEvent);
         }
 
         private void OnCoreSelectionChanged(
@@ -147,7 +147,7 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Samples
             string previous = args.HadPreviousSelection ? args.PreviousKey : "(none)";
             string current = args.HasSelection ? args.SelectedKey : "(none)";
             _lastCoreEvent = "CoreState: " + previous + " -> " + current + " (" + args.Mode + ")";
-            Debug.Log(_lastCoreEvent);
+            ObjectSelectionCoreStateLog.Samples.Info(_lastCoreEvent);
         }
 
         private void EnsureCamera()

@@ -19,6 +19,7 @@ jobs:
           cat > ObjectSelectionCoreStateBridge-TestProject/Packages/manifest.json <<JSON
           {
             "dependencies": {
+              "com.deucarian.logging": "https://github.com/Deucarian/Logging.git#main",
               "com.deucarian.object-selection": "https://github.com/Deucarian/Object-Selection.git#main",
               "com.deucarian.core-state": "https://github.com/Deucarian/Core-State.git#main",
               "com.deucarian.object-selection.core-state-bridge": "file:${package_path}",
