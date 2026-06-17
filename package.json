@@ -1,8 +1,8 @@
 {
-  "name": "com.deucarian.object-selection.core-state-bridge",
-  "version": "1.0.1",
-  "displayName": "Deucarian Object Selection Core State Bridge",
-  "description": "Bridge package that synchronizes Deucarian Object Selection and Deucarian Core State selections by shared key.",
+  "name": "com.deucarian.object-selection.core-state-integration",
+  "version": "1.0.2",
+  "displayName": "Deucarian Object Selection Core State Integration",
+  "description": "Integration package that synchronizes Deucarian Object Selection and Deucarian Core State selections by shared key.",
   "unity": "2021.3",
   "author": {
     "name": "Deucarian"
@@ -11,19 +11,19 @@
     "selection",
     "object",
     "state",
-    "bridge",
+    "integration",
     "corestate"
   ],
   "dependencies": {
-    "com.deucarian.logging": "0.2.2",
-    "com.deucarian.object-selection": "1.0.0",
+    "com.deucarian.logging": "0.2.6",
+    "com.deucarian.object-selection": "1.0.2",
     "com.deucarian.core-state": "1.0.0"
   },
   "samples": [
     {
-      "displayName": "Core State Bridge Sample",
+      "displayName": "Core State Integration Sample",
       "description": "Primitive scene showing world-object selection synchronized with Core State selection and back again.",
-      "path": "Samples~/CoreStateBridgeSample"
+      "path": "Samples~/CoreStateIntegrationSample"
     }
   ]
 }

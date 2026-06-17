@@ -120,9 +120,9 @@ MonoScript:
   m_Icon: {fileID: 0}
   m_Type: 0
   m_ExecutionOrder: 0
-  m_ClassName: CoreStateBridgeSample
-  m_Namespace: Deucarian.ObjectSelection.CoreStateBridge.Samples
-  m_AssemblyName: Deucarian.ObjectSelection.CoreStateBridge.Samples.CoreStateBridgeSample
+  m_ClassName: CoreStateIntegrationSample
+  m_Namespace: Deucarian.ObjectSelection.CoreStateIntegration.Samples
+  m_AssemblyName: Deucarian.ObjectSelection.CoreStateIntegration.Samples.CoreStateIntegrationSample
 --- !u!1 &1848306160
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 1848306162}
   - component: {fileID: 1848306161}
   m_Layer: 0
-  m_Name: Core State Bridge Sample
+  m_Name: Core State Integration Sample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 1145264800}
   m_Name:
-  m_EditorClassIdentifier: Deucarian.ObjectSelection.CoreStateBridge.Samples.CoreStateBridgeSample::Deucarian.ObjectSelection.CoreStateBridge.Samples.CoreStateBridgeSample
+  m_EditorClassIdentifier: Deucarian.ObjectSelection.CoreStateIntegration.Samples.CoreStateIntegrationSample::Deucarian.ObjectSelection.CoreStateIntegration.Samples.CoreStateIntegrationSample
 --- !u!4 &1848306162
 Transform:
   m_ObjectHideFlags: 0

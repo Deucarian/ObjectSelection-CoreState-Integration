@@ -2,11 +2,11 @@
 
 ## Scope
 
-ObjectSelection CoreState Bridge is a standalone bridge package. It may depend on `com.deucarian.object-selection` and `com.deucarian.core-state`.
+ObjectSelection CoreState Integration is a standalone integration package. It may depend on `com.deucarian.object-selection` and `com.deucarian.core-state`.
 
 Keep this package independent from UIBinding, API, Session, UI Toolkit, UGUI, ServiceLocator, backend services, and application-specific architecture.
 
-The bridge synchronizes shared keys only. ObjectSelection owns world-object selection. CoreState owns data/application selection.
+The integration synchronizes shared keys only. ObjectSelection owns world-object selection. CoreState owns data/application selection.
 
 ## Local Validation
 
@@ -23,7 +23,7 @@ For Unity validation, use a separate test project that references this package a
   "dependencies": {
     "com.deucarian.object-selection": "file:C:/Repositories/ObjectSelection",
     "com.deucarian.core-state": "file:C:/Repositories/Core-State",
-    "com.deucarian.object-selection.core-state-bridge": "file:C:/Repositories/Deucarian.ObjectSelection-CoreState-Bridge"
+    "com.deucarian.object-selection.core-state-integration": "file:C:/Repositories/Deucarian.ObjectSelection-CoreState-Integration"
   }
 }
 ```
@@ -32,7 +32,7 @@ Package source should stay in this repository. Do not copy package runtime code 
 
 ## Pull Requests
 
-- Keep bridge behavior focused on selection synchronization.
+- Keep integration behavior focused on selection synchronization.
 - Add or update EditMode tests for behavior changes.
 - Keep runtime asmdef free of editor-only references.
 - Do not add UI, backend, service-location, or application dependencies.

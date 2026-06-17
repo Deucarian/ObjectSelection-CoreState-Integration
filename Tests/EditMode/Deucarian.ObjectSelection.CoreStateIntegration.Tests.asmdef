@@ -1,8 +1,8 @@
 {
-  "name": "Deucarian.ObjectSelection.CoreStateBridge.Tests",
-  "rootNamespace": "Deucarian.ObjectSelection.CoreStateBridge.Tests",
+  "name": "Deucarian.ObjectSelection.CoreStateIntegration.Tests",
+  "rootNamespace": "Deucarian.ObjectSelection.CoreStateIntegration.Tests",
   "references": [
-    "Deucarian.ObjectSelection.CoreStateBridge",
+    "Deucarian.ObjectSelection.CoreStateIntegration",
     "Deucarian.ObjectSelection",
     "Deucarian.CoreState"
   ],

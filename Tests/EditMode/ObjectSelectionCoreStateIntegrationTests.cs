@@ -6,18 +6,18 @@ using NUnit.Framework;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Deucarian.ObjectSelection.CoreStateBridge.Tests
+namespace Deucarian.ObjectSelection.CoreStateIntegration.Tests
 {
-    public sealed class ObjectSelectionCoreStateBridgeTests
+    public sealed class ObjectSelectionCoreStateIntegrationTests
     {
         [Test]
         public void ObjectSelectionToCoreStateSync()
         {
-            var fixture = new BridgeFixture();
+            var fixture = new IntegrationFixture();
 
             try
             {
-                using (new ObjectSelectionCoreStateBridge<string, TestData>(
+                using (new ObjectSelectionCoreStateIntegration<string, TestData>(
                     fixture.ObjectSelection,
                     fixture.CoreSelection))
                 {
@@ -37,11 +37,11 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Tests
         [Test]
         public void CoreStateToObjectSelectionSync()
         {
-            var fixture = new BridgeFixture();
+            var fixture = new IntegrationFixture();
 
             try
             {
-                using (new ObjectSelectionCoreStateBridge<string, TestData>(
+                using (new ObjectSelectionCoreStateIntegration<string, TestData>(
                     fixture.ObjectSelection,
                     fixture.CoreSelection))
                 {
@@ -61,11 +61,11 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Tests
         [Test]
         public void ClearObjectSelectionClearsCoreState()
         {
-            var fixture = new BridgeFixture();
+            var fixture = new IntegrationFixture();
 
             try
             {
-                using (new ObjectSelectionCoreStateBridge<string, TestData>(
+                using (new ObjectSelectionCoreStateIntegration<string, TestData>(
                     fixture.ObjectSelection,
                     fixture.CoreSelection))
                 {
@@ -85,11 +85,11 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Tests
         [Test]
         public void ClearCoreStateClearsObjectSelection()
         {
-            var fixture = new BridgeFixture();
+            var fixture = new IntegrationFixture();
 
             try
             {
-                using (new ObjectSelectionCoreStateBridge<string, TestData>(
+                using (new ObjectSelectionCoreStateIntegration<string, TestData>(
                     fixture.ObjectSelection,
                     fixture.CoreSelection))
                 {
@@ -109,14 +109,14 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Tests
         [Test]
         public void SameKeyChangesAreIdempotent()
         {
-            var fixture = new BridgeFixture();
+            var fixture = new IntegrationFixture();
 
             try
             {
                 int coreEvents = 0;
                 fixture.CoreSelection.SelectionChanged += (_, __) => coreEvents++;
 
-                using (new ObjectSelectionCoreStateBridge<string, TestData>(
+                using (new ObjectSelectionCoreStateIntegration<string, TestData>(
                     fixture.ObjectSelection,
                     fixture.CoreSelection))
                 {
@@ -145,7 +145,7 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Tests
                 registry.Register(new SelectableObject<string>("cube", cube));
                 var objectSelection = new ObjectSelectionService<string>(registry);
 
-                using (new ObjectSelectionCoreStateBridge<string, TestData>(
+                using (new ObjectSelectionCoreStateIntegration<string, TestData>(
                     objectSelection,
                     coreSelection))
                 {
@@ -165,15 +165,15 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Tests
         [Test]
         public void DisposeUnsubscribesEvents()
         {
-            var fixture = new BridgeFixture();
+            var fixture = new IntegrationFixture();
 
             try
             {
-                var bridge = new ObjectSelectionCoreStateBridge<string, TestData>(
+                var integration = new ObjectSelectionCoreStateIntegration<string, TestData>(
                     fixture.ObjectSelection,
                     fixture.CoreSelection);
 
-                bridge.Dispose();
+                integration.Dispose();
 
                 fixture.ObjectSelection.Select("cube");
                 Assert.IsFalse(fixture.CoreSelection.HasSelection);
@@ -181,7 +181,7 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Tests
                 fixture.ObjectSelection.ClearSelection();
                 fixture.CoreSelection.Select("sphere");
                 Assert.IsFalse(fixture.ObjectSelection.HasSelection);
-                Assert.IsFalse(bridge.IsBound);
+                Assert.IsFalse(integration.IsBound);
             }
             finally
             {
@@ -192,11 +192,11 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Tests
         [Test]
         public void MissingKeyOrObjectHandlingIsSafe()
         {
-            var fixture = new BridgeFixture(includeMismatchedKeys: true);
+            var fixture = new IntegrationFixture(includeMismatchedKeys: true);
 
             try
             {
-                using (new ObjectSelectionCoreStateBridge<string, TestData>(
+                using (new ObjectSelectionCoreStateIntegration<string, TestData>(
                     fixture.ObjectSelection,
                     fixture.CoreSelection))
                 {
@@ -217,9 +217,9 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Tests
             }
         }
 
-        private sealed class BridgeFixture
+        private sealed class IntegrationFixture
         {
-            public BridgeFixture(bool includeMismatchedKeys = false)
+            public IntegrationFixture(bool includeMismatchedKeys = false)
             {
                 ObjectRegistry = new ObjectSelectionRegistry<string>();
                 Repository = new Repository<string, TestData>();

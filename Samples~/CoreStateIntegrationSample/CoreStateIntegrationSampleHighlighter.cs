@@ -2,9 +2,9 @@ using Deucarian.ObjectSelection;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Deucarian.ObjectSelection.CoreStateBridge.Samples
+namespace Deucarian.ObjectSelection.CoreStateIntegration.Samples
 {
-    public sealed class CoreStateBridgeSampleHighlighter : MonoBehaviour, IObjectSelectionHighlighter<string>
+    public sealed class CoreStateIntegrationSampleHighlighter : MonoBehaviour, IObjectSelectionHighlighter<string>
     {
         [SerializeField] private Color selectedColor = new Color(1f, 0.72f, 0.18f, 1f);
 

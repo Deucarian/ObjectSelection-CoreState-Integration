@@ -14,19 +14,19 @@ jobs:
       - name: Create package test project manifest
         shell: bash
         run: |
-          mkdir -p ObjectSelectionCoreStateBridge-TestProject/Packages ObjectSelectionCoreStateBridge-TestProject/Assets
+          mkdir -p ObjectSelectionCoreStateIntegration-TestProject/Packages ObjectSelectionCoreStateIntegration-TestProject/Assets
           package_path="${GITHUB_WORKSPACE}"
-          cat > ObjectSelectionCoreStateBridge-TestProject/Packages/manifest.json <<JSON
+          cat > ObjectSelectionCoreStateIntegration-TestProject/Packages/manifest.json <<JSON
           {
             "dependencies": {
               "com.deucarian.logging": "https://github.com/Deucarian/Logging.git#main",
               "com.deucarian.object-selection": "https://github.com/Deucarian/Object-Selection.git#main",
               "com.deucarian.core-state": "https://github.com/Deucarian/Core-State.git#main",
-              "com.deucarian.object-selection.core-state-bridge": "file:${package_path}",
+              "com.deucarian.object-selection.core-state-integration": "file:${package_path}",
               "com.unity.test-framework": "1.1.33"
             },
             "testables": [
-              "com.deucarian.object-selection.core-state-bridge"
+              "com.deucarian.object-selection.core-state-integration"
             ]
           }
           JSON
@@ -38,7 +38,7 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          projectPath: ObjectSelectionCoreStateBridge-TestProject
+          projectPath: ObjectSelectionCoreStateIntegration-TestProject
           unityVersion: 2021.3.45f1
           testMode: editmode
 

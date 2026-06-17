@@ -7,17 +7,17 @@ $requiredFiles = @(
     "CHANGELOG.md",
     "LICENSE.md",
     "CONTRIBUTING.md",
-    "Runtime/Deucarian.ObjectSelection.CoreStateBridge.asmdef",
-    "Runtime/ObjectSelectionCoreStateBridge.cs",
-    "Tests/EditMode/Deucarian.ObjectSelection.CoreStateBridge.Tests.asmdef",
-    "Samples~/CoreStateBridgeSample/Deucarian.ObjectSelection.CoreStateBridge.Samples.CoreStateBridgeSample.asmdef",
-    "Samples~/CoreStateBridgeSample/CoreStateBridgeSample.unity"
+    "Runtime/Deucarian.ObjectSelection.CoreStateIntegration.asmdef",
+    "Runtime/ObjectSelectionCoreStateIntegration.cs",
+    "Tests/EditMode/Deucarian.ObjectSelection.CoreStateIntegration.Tests.asmdef",
+    "Samples~/CoreStateIntegrationSample/Deucarian.ObjectSelection.CoreStateIntegration.Samples.CoreStateIntegrationSample.asmdef",
+    "Samples~/CoreStateIntegrationSample/CoreStateIntegrationSample.unity"
 )
 
 $requiredDirectories = @(
     "Runtime",
     "Tests/EditMode",
-    "Samples~/CoreStateBridgeSample",
+    "Samples~/CoreStateIntegrationSample",
     "Tools",
     ".github/workflows"
 )
@@ -37,11 +37,11 @@ foreach ($file in $requiredFiles) {
 }
 
 $package = Get-Content -LiteralPath (Join-Path $root "package.json") -Raw | ConvertFrom-Json
-if ($package.name -ne "com.deucarian.object-selection.core-state-bridge") {
+if ($package.name -ne "com.deucarian.object-selection.core-state-integration") {
     throw "Unexpected package name: $($package.name)"
 }
 
-if ($package.displayName -ne "Deucarian Object Selection Core State Bridge") {
+if ($package.displayName -ne "Deucarian Object Selection Core State Integration") {
     throw "Unexpected package display name: $($package.displayName)"
 }
 
@@ -49,20 +49,20 @@ if ($package.version -notmatch "^\d+\.\d+\.\d+$") {
     throw "Package version must be semver MAJOR.MINOR.PATCH: $($package.version)"
 }
 
-if ($package.dependencies."com.deucarian.object-selection" -ne "1.0.0") {
-    throw "Package must depend on com.deucarian.object-selection 1.0.0"
+if ($package.dependencies."com.deucarian.object-selection" -ne "1.0.2") {
+    throw "Package must depend on com.deucarian.object-selection 1.0.2"
 }
 
 if ($package.dependencies."com.deucarian.core-state" -ne "1.0.0") {
     throw "Package must depend on com.deucarian.core-state 1.0.0"
 }
 
-if ($package.dependencies."com.deucarian.logging" -ne "0.2.2") {
-    throw "Package must depend on com.deucarian.logging 0.2.2"
+if ($package.dependencies."com.deucarian.logging" -ne "0.2.6") {
+    throw "Package must depend on com.deucarian.logging 0.2.6"
 }
 
-$runtimeAsmdef = Get-Content -LiteralPath (Join-Path $root "Runtime/Deucarian.ObjectSelection.CoreStateBridge.asmdef") -Raw | ConvertFrom-Json
-if ($runtimeAsmdef.name -ne "Deucarian.ObjectSelection.CoreStateBridge") {
+$runtimeAsmdef = Get-Content -LiteralPath (Join-Path $root "Runtime/Deucarian.ObjectSelection.CoreStateIntegration.asmdef") -Raw | ConvertFrom-Json
+if ($runtimeAsmdef.name -ne "Deucarian.ObjectSelection.CoreStateIntegration") {
     throw "Unexpected runtime asmdef name: $($runtimeAsmdef.name)"
 }
 
@@ -78,14 +78,14 @@ if ($runtimeAsmdef.references -notcontains "Deucarian.Logging") {
     throw "Runtime asmdef must reference Deucarian.Logging"
 }
 
-$testAsmdef = Get-Content -LiteralPath (Join-Path $root "Tests/EditMode/Deucarian.ObjectSelection.CoreStateBridge.Tests.asmdef") -Raw | ConvertFrom-Json
-if ($testAsmdef.references -notcontains "Deucarian.ObjectSelection.CoreStateBridge") {
-    throw "Tests asmdef must reference Deucarian.ObjectSelection.CoreStateBridge"
+$testAsmdef = Get-Content -LiteralPath (Join-Path $root "Tests/EditMode/Deucarian.ObjectSelection.CoreStateIntegration.Tests.asmdef") -Raw | ConvertFrom-Json
+if ($testAsmdef.references -notcontains "Deucarian.ObjectSelection.CoreStateIntegration") {
+    throw "Tests asmdef must reference Deucarian.ObjectSelection.CoreStateIntegration"
 }
 
-$sampleAsmdef = Get-Content -LiteralPath (Join-Path $root "Samples~/CoreStateBridgeSample/Deucarian.ObjectSelection.CoreStateBridge.Samples.CoreStateBridgeSample.asmdef") -Raw | ConvertFrom-Json
-if ($sampleAsmdef.references -notcontains "Deucarian.ObjectSelection.CoreStateBridge") {
-    throw "Sample asmdef must reference Deucarian.ObjectSelection.CoreStateBridge"
+$sampleAsmdef = Get-Content -LiteralPath (Join-Path $root "Samples~/CoreStateIntegrationSample/Deucarian.ObjectSelection.CoreStateIntegration.Samples.CoreStateIntegrationSample.asmdef") -Raw | ConvertFrom-Json
+if ($sampleAsmdef.references -notcontains "Deucarian.ObjectSelection.CoreStateIntegration") {
+    throw "Sample asmdef must reference Deucarian.ObjectSelection.CoreStateIntegration"
 }
 
 if ($sampleAsmdef.references -notcontains "Deucarian.Logging") {
@@ -127,4 +127,4 @@ if ($generatedArtifacts.Count -gt 0) {
     throw "Generated artifacts are present in the package repository."
 }
 
-Write-Host "Deucarian Object Selection Core State Bridge package validation passed."
+Write-Host "Deucarian Object Selection Core State Integration package validation passed."

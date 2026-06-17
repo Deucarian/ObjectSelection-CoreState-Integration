@@ -3,20 +3,20 @@ using Deucarian.CoreState;
 using Deucarian.ObjectSelection;
 using UnityEngine;
 
-namespace Deucarian.ObjectSelection.CoreStateBridge.Samples
+namespace Deucarian.ObjectSelection.CoreStateIntegration.Samples
 {
-    public sealed class CoreStateBridgeSample : MonoBehaviour
+    public sealed class CoreStateIntegrationSample : MonoBehaviour
     {
         private readonly string[] _keys = { "cube", "sphere", "capsule", "cylinder" };
         private readonly Dictionary<string, GameObject> _objects = new Dictionary<string, GameObject>();
 
         private ObjectSelectionRegistry<string> _objectRegistry;
         private ObjectSelectionService<string> _objectSelection;
-        private Repository<string, CoreStateBridgeSampleData> _repository;
-        private SelectionService<string, CoreStateBridgeSampleData> _coreSelection;
-        private ObjectSelectionCoreStateBridge<string, CoreStateBridgeSampleData> _bridge;
-        private CoreStateBridgeSampleHighlighter _highlighter;
-        private CoreStateBridgeSampleRaycastController _raycastController;
+        private Repository<string, CoreStateIntegrationSampleData> _repository;
+        private SelectionService<string, CoreStateIntegrationSampleData> _coreSelection;
+        private ObjectSelectionCoreStateIntegration<string, CoreStateIntegrationSampleData> _integration;
+        private CoreStateIntegrationSampleHighlighter _highlighter;
+        private CoreStateIntegrationSampleRaycastController _raycastController;
         private string _lastObjectEvent = "ObjectSelection: none";
         private string _lastCoreEvent = "CoreState: none";
 
@@ -24,8 +24,8 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Samples
         {
             _objectRegistry = new ObjectSelectionRegistry<string>();
             _objectSelection = new ObjectSelectionService<string>(_objectRegistry);
-            _repository = new Repository<string, CoreStateBridgeSampleData>();
-            _coreSelection = new SelectionService<string, CoreStateBridgeSampleData>(_repository);
+            _repository = new Repository<string, CoreStateIntegrationSampleData>();
+            _coreSelection = new SelectionService<string, CoreStateIntegrationSampleData>(_repository);
 
             EnsureCamera();
             EnsureLight();
@@ -35,7 +35,7 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Samples
 
             _objectSelection.SelectionChanged += OnObjectSelectionChanged;
             _coreSelection.SelectionChanged += OnCoreSelectionChanged;
-            _bridge = new ObjectSelectionCoreStateBridge<string, CoreStateBridgeSampleData>(
+            _integration = new ObjectSelectionCoreStateIntegration<string, CoreStateIntegrationSampleData>(
                 _objectSelection,
                 _coreSelection);
 
@@ -54,9 +54,9 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Samples
                 _coreSelection.SelectionChanged -= OnCoreSelectionChanged;
             }
 
-            if (_bridge != null)
+            if (_integration != null)
             {
-                _bridge.Dispose();
+                _integration.Dispose();
             }
         }
 
@@ -87,7 +87,7 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Samples
         private void OnGUI()
         {
             GUILayout.BeginArea(new Rect(16f, 16f, 390f, 280f), GUI.skin.box);
-            GUILayout.Label("Deucarian ObjectSelection CoreState Bridge");
+            GUILayout.Label("Deucarian ObjectSelection CoreState Integration");
             GUILayout.Label("World: " + (_objectSelection.HasSelection ? _objectSelection.CurrentKey : "(none)"));
             GUILayout.Label("CoreState: " + (_coreSelection.HasSelection ? _coreSelection.SelectedKey : "(none)"));
             GUILayout.Label(_lastObjectEvent);
@@ -142,7 +142,7 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Samples
 
         private void OnCoreSelectionChanged(
             object sender,
-            Deucarian.CoreState.SelectionChangedEventArgs<string, CoreStateBridgeSampleData> args)
+            Deucarian.CoreState.SelectionChangedEventArgs<string, CoreStateIntegrationSampleData> args)
         {
             string previous = args.HadPreviousSelection ? args.PreviousKey : "(none)";
             string current = args.HasSelection ? args.SelectedKey : "(none)";
@@ -211,7 +211,7 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Samples
                 }
 
                 _objectRegistry.Register(new SelectableObject<string>(key, target));
-                _repository.AddOrUpdate(new CoreStateBridgeSampleData(key, ToLabel(key)));
+                _repository.AddOrUpdate(new CoreStateIntegrationSampleData(key, ToLabel(key)));
             }
         }
 
@@ -227,19 +227,19 @@ namespace Deucarian.ObjectSelection.CoreStateBridge.Samples
 
         private void EnsureHighlighter()
         {
-            _highlighter = GetComponent<CoreStateBridgeSampleHighlighter>();
+            _highlighter = GetComponent<CoreStateIntegrationSampleHighlighter>();
             if (_highlighter == null)
             {
-                _highlighter = gameObject.AddComponent<CoreStateBridgeSampleHighlighter>();
+                _highlighter = gameObject.AddComponent<CoreStateIntegrationSampleHighlighter>();
             }
         }
 
         private void EnsureRaycastController()
         {
-            _raycastController = GetComponent<CoreStateBridgeSampleRaycastController>();
+            _raycastController = GetComponent<CoreStateIntegrationSampleRaycastController>();
             if (_raycastController == null)
             {
-                _raycastController = gameObject.AddComponent<CoreStateBridgeSampleRaycastController>();
+                _raycastController = gameObject.AddComponent<CoreStateIntegrationSampleRaycastController>();
             }
 
             _raycastController.SelectionCamera = Camera.main;

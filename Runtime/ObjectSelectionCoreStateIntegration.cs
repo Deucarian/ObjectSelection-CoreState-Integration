@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using Deucarian.CoreState;
 using Deucarian.ObjectSelection;
 
-namespace Deucarian.ObjectSelection.CoreStateBridge
+namespace Deucarian.ObjectSelection.CoreStateIntegration
 {
     /// <summary>
     /// Synchronizes Object Selection and Core State selection services by shared key.
     /// </summary>
     /// <typeparam name="TKey">The stable selection key type shared by both services.</typeparam>
     /// <typeparam name="T">The Core State item type.</typeparam>
-    public sealed class ObjectSelectionCoreStateBridge<TKey, T> : IDisposable
+    public sealed class ObjectSelectionCoreStateIntegration<TKey, T> : IDisposable
     {
         private readonly ObjectSelectionService<TKey> _objectSelection;
         private readonly ISelectionService<TKey, T> _coreSelection;
@@ -18,11 +18,11 @@ namespace Deucarian.ObjectSelection.CoreStateBridge
         private bool _isSyncing;
 
         /// <summary>
-        /// Creates and immediately binds a bridge between Object Selection and Core State.
+        /// Creates and immediately binds a integration between Object Selection and Core State.
         /// </summary>
         /// <param name="objectSelection">The world/object selection service.</param>
         /// <param name="coreSelection">The Core State data selection service.</param>
-        public ObjectSelectionCoreStateBridge(
+        public ObjectSelectionCoreStateIntegration(
             ObjectSelectionService<TKey> objectSelection,
             ISelectionService<TKey, T> coreSelection)
             : this(objectSelection, coreSelection, true)
@@ -30,12 +30,12 @@ namespace Deucarian.ObjectSelection.CoreStateBridge
         }
 
         /// <summary>
-        /// Creates a bridge between Object Selection and Core State.
+        /// Creates a integration between Object Selection and Core State.
         /// </summary>
         /// <param name="objectSelection">The world/object selection service.</param>
         /// <param name="coreSelection">The Core State data selection service.</param>
         /// <param name="bindImmediately">When true, subscribes to both selection services immediately.</param>
-        public ObjectSelectionCoreStateBridge(
+        public ObjectSelectionCoreStateIntegration(
             ObjectSelectionService<TKey> objectSelection,
             ISelectionService<TKey, T> coreSelection,
             bool bindImmediately)
@@ -60,7 +60,7 @@ namespace Deucarian.ObjectSelection.CoreStateBridge
         }
 
         /// <summary>
-        /// Gets the Object Selection service synchronized by this bridge.
+        /// Gets the Object Selection service synchronized by this integration.
         /// </summary>
         public ObjectSelectionService<TKey> ObjectSelection
         {
@@ -68,7 +68,7 @@ namespace Deucarian.ObjectSelection.CoreStateBridge
         }
 
         /// <summary>
-        /// Gets the Core State selection service synchronized by this bridge.
+        /// Gets the Core State selection service synchronized by this integration.
         /// </summary>
         public ISelectionService<TKey, T> CoreSelection
         {
@@ -76,7 +76,7 @@ namespace Deucarian.ObjectSelection.CoreStateBridge
         }
 
         /// <summary>
-        /// Gets whether the bridge is currently subscribed to both services.
+        /// Gets whether the integration is currently subscribed to both services.
         /// </summary>
         public bool IsBound
         {

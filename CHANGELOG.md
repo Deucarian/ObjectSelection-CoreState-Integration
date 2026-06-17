@@ -1,13 +1,19 @@
 # Changelog
 
+## 1.0.2 - 2026-06-17
+
+- Renamed the package identity from `com.deucarian.object-selection.core-state-bridge` to `com.deucarian.object-selection.core-state-integration`.
+- Renamed CoreStateBridge assemblies, namespaces, tests, tools, and samples to CoreStateIntegration.
+- Migration: remove the old bridge package ID from Unity manifests and add `com.deucarian.object-selection.core-state-integration`.
+
 ## 1.0.1
 
 - Standardized package logging on com.deucarian.logging.
-- Added `ObjectSelectionCoreStateLog` package categories for bridge and sample diagnostics.
+- Added `ObjectSelectionCoreStateLog` package categories for integration and sample diagnostics.
 
 ## 1.0.0
 
-- Created standalone UPM package `com.deucarian.object-selection.core-state-bridge`.
-- Added `ObjectSelectionCoreStateBridge<TKey, T>` for two-way key synchronization between ObjectSelection and CoreState.
+- Created standalone UPM package `com.deucarian.object-selection.core-state-integration`.
+- Added `ObjectSelectionCoreStateIntegration<TKey, T>` for two-way key synchronization between ObjectSelection and CoreState.
 - Added guard-based feedback loop prevention, idempotent forwarding, missing-key safety, and disposal/unsubscription support.
 - Added EditMode tests, sample scene/scripts, README, contributing guide, validation tooling, and CI workflows.

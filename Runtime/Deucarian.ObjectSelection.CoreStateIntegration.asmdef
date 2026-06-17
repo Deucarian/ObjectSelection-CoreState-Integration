@@ -1,6 +1,6 @@
 {
-  "name": "Deucarian.ObjectSelection.CoreStateBridge",
-  "rootNamespace": "Deucarian.ObjectSelection.CoreStateBridge",
+  "name": "Deucarian.ObjectSelection.CoreStateIntegration",
+  "rootNamespace": "Deucarian.ObjectSelection.CoreStateIntegration",
   "references": [
     "Deucarian.ObjectSelection",
     "Deucarian.CoreState",

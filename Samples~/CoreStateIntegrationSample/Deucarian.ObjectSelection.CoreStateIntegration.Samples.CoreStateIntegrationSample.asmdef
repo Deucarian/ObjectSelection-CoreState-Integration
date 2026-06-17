@@ -1,8 +1,8 @@
 {
-  "name": "Deucarian.ObjectSelection.CoreStateBridge.Samples.CoreStateBridgeSample",
-  "rootNamespace": "Deucarian.ObjectSelection.CoreStateBridge.Samples",
+  "name": "Deucarian.ObjectSelection.CoreStateIntegration.Samples.CoreStateIntegrationSample",
+  "rootNamespace": "Deucarian.ObjectSelection.CoreStateIntegration.Samples",
   "references": [
-    "Deucarian.ObjectSelection.CoreStateBridge",
+    "Deucarian.ObjectSelection.CoreStateIntegration",
     "Deucarian.ObjectSelection",
     "Deucarian.CoreState",
     "Deucarian.Logging"
