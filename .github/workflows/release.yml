@@ -1,9 +1,15 @@
 name: Release Package Zip
 
 on:
-  push:
-    tags:
-      - "v*"
+  # Git-only stable distribution is active for now; tag/GitHub releases are deferred.
+  # Do not trigger release mode without a dedicated release wave.
+  workflow_dispatch:
+    inputs:
+      confirm_release:
+        description: "Type exactly: I understand this publishes a Deucarian package"
+        required: true
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -13,6 +19,17 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: Git-only release policy guard
+        shell: pwsh
+        env:
+          INPUT_CONFIRM_RELEASE: ${{ inputs.confirm_release }}
+        run: |
+          if ($env:INPUT_CONFIRM_RELEASE -ne "I understand this publishes a Deucarian package") {
+            Write-Error "::error::Release workflows require exact confirm_release acknowledgement."
+            exit 1
+          }
+          Write-Error "::error::Git-only stable distribution is active for now; tag and GitHub release creation are deferred to a dedicated release wave."
+          exit 1
       - name: Checkout
         uses: actions/checkout@v4
 
