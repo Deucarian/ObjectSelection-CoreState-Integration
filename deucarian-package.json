@@ -1,0 +1,24 @@
+{
+  "packageId": "com.deucarian.object-selection.core-state-integration",
+  "displayName": "Deucarian Object Selection Core State Integration",
+  "ownedCapabilities": [],
+  "runtimeAssemblies": [
+    "Deucarian.ObjectSelection.CoreStateIntegration"
+  ],
+  "editorAssemblies": [],
+  "sampleAssemblies": [
+    "Deucarian.ObjectSelection.CoreStateIntegration.Samples.CoreStateIntegrationSample"
+  ],
+  "testAssemblies": [
+    "Deucarian.ObjectSelection.CoreStateIntegration.Tests"
+  ],
+  "requiredDependencies": [
+    "com.deucarian.core-state",
+    "com.deucarian.logging",
+    "com.deucarian.object-selection"
+  ],
+  "optionalVersionDefinedDependencies": [],
+  "allowedDirectDebugCalls": [],
+  "allowedDirectUnityObjectLifetimeCalls": [],
+  "expectedSamplesRoot": "Samples~"
+}
