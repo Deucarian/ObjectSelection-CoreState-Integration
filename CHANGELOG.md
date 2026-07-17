@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4 - 2026-07-17
+
+- Aligned package metadata and exact Core State, Object Selection, and Logging dependencies with the coordinated portfolio release.
+
 ## 1.0.3 - 2026-06-22
 
 - Updated exact Core State, Object Selection, and Logging dependencies for the accepted stable release line.

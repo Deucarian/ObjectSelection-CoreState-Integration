@@ -1,6 +1,7 @@
 {
   "packageId": "com.deucarian.object-selection.core-state-integration",
   "displayName": "Deucarian Object Selection Core State Integration",
+  "samplePolicy": "playable-scene",
   "ownedCapabilities": [],
   "runtimeAssemblies": [
     "Deucarian.ObjectSelection.CoreStateIntegration"
