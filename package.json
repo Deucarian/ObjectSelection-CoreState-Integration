@@ -1,6 +1,6 @@
 {
   "name": "com.deucarian.object-selection.core-state-integration",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "displayName": "Deucarian Object Selection Core State Integration",
   "description": "Integration package that synchronizes Deucarian Object Selection and Deucarian Core State selections by shared key.",
   "unity": "2021.3",
@@ -19,9 +19,9 @@
     "corestate"
   ],
   "dependencies": {
-    "com.deucarian.logging": "1.0.1",
-    "com.deucarian.object-selection": "1.0.3",
-    "com.deucarian.core-state": "1.0.1"
+    "com.deucarian.logging": "1.0.2",
+    "com.deucarian.object-selection": "1.0.4",
+    "com.deucarian.core-state": "1.0.2"
   },
   "samples": [
     {

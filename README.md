@@ -9,7 +9,7 @@
 
 ObjectSelection owns world-object selection. CoreState owns data/application selection. This integration only synchronizes shared keys.
 
-Current package version: `1.0.3`.
+Current package version: `1.0.4`.
 
 ## When to use it
 
@@ -53,9 +53,9 @@ For local development:
 
 ## Dependencies
 
-- `com.deucarian.object-selection` `1.0.3` supplies the world-object selection service.
-- `com.deucarian.core-state` `1.0.1` supplies the repository and data-selection contracts.
-- `com.deucarian.logging` `1.0.1` supplies runtime diagnostics for integration and sample categories.
+- `com.deucarian.object-selection` `1.0.4` supplies the world-object selection service.
+- `com.deucarian.core-state` `1.0.2` supplies the repository and data-selection contracts.
+- `com.deucarian.logging` `1.0.2` supplies runtime diagnostics for integration and sample categories.
 
 Neither Object Selection nor Core State depends on this integration package.
 
